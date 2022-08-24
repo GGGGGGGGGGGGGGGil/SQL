@@ -71,12 +71,24 @@ insert into `User5` set
 						`name`='김춘추',
                         `addr`='부산시'; #이름값을 안 넣었기 때문에 실행 오류
 
-#실습 2-8
+#실습 2-8 나중에 순서 수정
 #실습 2-9
 #실습 2-10
-#실습 2-11
+#실습 2-11 컬럼 추가
+alter table `User5` add `hp` varchar(20);
+alter table `User5` add `birth` char(10) default '0000-00-00' after `name`;
+alter table `User5` add `uid` varchar(10) first;
+
 #실습 2-12
+alter table `User5` modify `hp` char(13);
+alter table `User5` modify `age` tinyint;
+
 #실습 2-13
+alter table `User5` change column `addr` `address` varchar(100);
+
 #실습 2-14
-#실습 2-15
-#실습 2-16
+alter table `` drop ``;
+#실습 2-15 데이터는 복사 되지 않음
+create table `User6` like `User5`;
+#실습 2-16 인서트 셀렉트 복합식(유저 5의 데이터를 6에 복사)
+insert into `User6` select * from `User5`;
