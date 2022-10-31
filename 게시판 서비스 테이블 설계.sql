@@ -60,3 +60,18 @@ SELECT COUNT(`uid`) FROM `board_user` WHERE `uid`='abcd'
 
 SELECT SHA('1234');
 SELECT SHA2('1234', 256);
+
+SELECT a.*, b.`name`, c.`prodName` FROM `order` AS a
+JOIN `customer` AS b ON a.orderId = b.custId
+JOIN `product` AS c ON a.orderProduct = c.prodNo;
+
+SELECT a.*, b.`fno`, b`oriName`, b`download` 
+FROM `board_article` AS a
+LEFT JOIN `board_file` AS b
+ON a.`no` = b.`parent`
+WHERE `no`=2;
+
+UPDATE `board_article` SET `hit` = `hit` + 1 WHERE `no`=1;
+UPDATE `board_file` SET `download` = `download` + 1 WHERE `fno`=1;
+
+
